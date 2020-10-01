@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VicMoneyTracker.MainPage">
+    <ContentPage.Content>
+        <StackLayout Margin="20,50,20,20">
+            <Label x:Name="totalAmountLabel" Text="£2 2c 1s 6d 1f" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+            <Label Text="Total Worth" FontSize="Default" HorizontalTextAlignment="Center" />
+            <Grid RowSpacing="0" Margin="0,20,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Frame Grid.ColumnSpan="5" BorderColor="Chocolate" Padding="2,1" HorizontalOptions="FillAndExpand" CornerRadius="0"/>
+                <Frame Grid.Row="1" Grid.ColumnSpan="5" BorderColor="Chocolate" Padding="2,1" HorizontalOptions="FillAndExpand" CornerRadius="0"/>
+                <Frame Grid.Row="2" Grid.ColumnSpan="5" BorderColor="Chocolate" Padding="2,1" HorizontalOptions="FillAndExpand" CornerRadius="0"/>
+                <Frame Grid.Row="3" Grid.ColumnSpan="5" BorderColor="Chocolate" Padding="2,1" HorizontalOptions="FillAndExpand" CornerRadius="0"/>
+                <Frame Grid.Row="4" Grid.ColumnSpan="5" BorderColor="Chocolate" Padding="2,1" HorizontalOptions="FillAndExpand" CornerRadius="0"/>
+
+                <!-- Pounds -->
+                <Button x:Name="DecrementPoundsButton"  Text="-" FontSize="Title" HorizontalOptions="Start" BackgroundColor="Transparent" BorderColor="Transparent" Clicked="DecrementPoundsButton_Clicked" />
+                <ImageButton x:Name="ConvertPoundsDownImage" Grid.Column="1" Source="downArrowEnabled.png" WidthRequest="30" HorizontalOptions="Center"  BackgroundColor="Transparent" BorderColor="Transparent" Clicked="ConvertPoundsDownImage_Clicked"/>
+                <Image x:Name="ConvertPoundsDownDisabledImage" Grid.Column="1" Source="downArrowDisabled.png" WidthRequest="30" HorizontalOptions="Center"/>
+                <StackLayout Grid.Column="2" Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Padding="0" Margin="0" Spacing="0">
+                    <Label x:Name="poundsAmountLabel" Text="2" HorizontalTextAlignment="Center" FontSize="Large" Margin="0" Padding="0"/>
+                    <Label x:Name="poundsTextLabel" Text="pounds" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <Button x:Name="IncrementPoundsButton" Grid.Column="4" Text="+" FontSize="Title" HorizontalOptions="End"  BackgroundColor="Transparent" BorderColor="Transparent" Clicked="IncrementPoundsButton_Clicked" />
+
+                <!-- crowns -->
+                <Button x:Name="DecrementCrownsButton" Grid.Row="1" Text="-" FontSize="Title" HorizontalOptions="Start" BackgroundColor="Transparent" BorderColor="Transparent" Clicked="DecrementCrownsButton_Clicked" />
+                <ImageButton x:Name="ConvertCrownsDownImage" Grid.Row="1" Grid.Column="1" Source="downArrowEnabled.png" WidthRequest="30" HorizontalOptions="Center"  BackgroundColor="Transparent" BorderColor="Transparent" Clicked="ConvertCrownsDownImage_Clicked"/>
+                <Image x:Name="ConvertCrownsDownDisabledImage" Grid.Row="1" Grid.Column="1" Source="downArrowDisabled.png" WidthRequest="30" HorizontalOptions="Center"/>
+                <StackLayout Grid.Row="1" Grid.Column="2" Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Padding="0" Margin="0" Spacing="0">
+                    <Label x:Name="crownsAmountLabel" Text="2" HorizontalTextAlignment="Center" FontSize="Large" Margin="0" Padding="0"/>
+                    <Label x:Name="crownsTextLabel" Text="crowns" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <ImageButton x:Name="ConvertCrownsUpImage" Grid.Row="1" Grid.Column="3" Source="upArrowEnabled.png" WidthRequest="30" HorizontalOptions="Center"  BackgroundColor="Transparent" BorderColor="Transparent" Clicked="ConvertCrownsUpImage_Clicked"/>
+                <Image x:Name="ConvertCrownsUpDisabledImage" Grid.Row="1" Grid.Column="3" Source="upArrowDisabled.png" WidthRequest="30" HorizontalOptions="Center"/>
+                <Button x:Name="IncrementCrownsButton" Grid.Row="1" Grid.Column="4" Text="+" FontSize="Title" HorizontalOptions="End"  BackgroundColor="Transparent" BorderColor="Transparent" Clicked="IncrementCrownsButton_Clicked" />
+
+                <!-- shilling -->
+                <Button x:Name="DecrementShillingsButton" Grid.Row="2" Text="-" FontSize="Title" HorizontalOptions="Start" BackgroundColor="Transparent" BorderColor="Transparent" Clicked="DecrementShillingsButton_Clicked" />
+                <ImageButton x:Name="ConvertShillingsDownImage" Grid.Row="2" Grid.Column="1" Source="downArrowEnabled.png" WidthRequest="30" HorizontalOptions="Center"  BackgroundColor="Transparent" BorderColor="Transparent" Clicked="ConvertShillingsDownImage_Clicked"/>
+                <Image x:Name="ConvertShillingsDownDisabledImage" Grid.Row="2" Grid.Column="1" Source="downArrowDisabled.png" WidthRequest="30" HorizontalOptions="Center"/>
+                <StackLayout Grid.Row="2" Grid.Column="2" Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Padding="0" Margin="0" Spacing="0">
+                    <Label x:Name="shillingsAmountLabel" Text="1" HorizontalTextAlignment="Center" FontSize="Large" Margin="0" Padding="0"/>
+                    <Label x:Name="shillingsTextLabel" Text="shilling" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <ImageButton x:Name="ConvertShillingsUpImage" Grid.Row="2" Grid.Column="3" Source="upArrowEnabled.png" WidthRequest="30" HorizontalOptions="Center"  BackgroundColor="Transparent" BorderColor="Transparent" Clicked="ConvertShillingsUpImage_Clicked"/>
+                <Image x:Name="ConvertShillingsUpDisabledImage" Grid.Row="2" Grid.Column="3" Source="upArrowDisabled.png" WidthRequest="30" HorizontalOptions="Center"/>
+                <Button x:Name="IncrementShillingsButton" Grid.Row="2" Grid.Column="4" Text="+" FontSize="Title" HorizontalOptions="End"  BackgroundColor="Transparent" BorderColor="Transparent" Clicked="IncrementShillingsButton_Clicked" />
+
+                <!-- pence -->
+                <Button x:Name="DecrementPenceButton" Grid.Row="3" Text="-" FontSize="Title" HorizontalOptions="Start" BackgroundColor="Transparent" BorderColor="Transparent" Clicked="DecrementPenceButton_Clicked"/>
+                <ImageButton x:Name="ConvertPenceDownImage" Grid.Row="3" Grid.Column="1" Source="downArrowEnabled.png" WidthRequest="30" HorizontalOptions="Center"  BackgroundColor="Transparent" BorderColor="Transparent" Clicked="ConvertPenceDownImage_Clicked"/>
+                <Image x:Name="ConvertPenceDownDisabledImage" Grid.Row="3" Grid.Column="1" Source="downArrowDisabled.png" WidthRequest="30" HorizontalOptions="Center"/>
+                <StackLayout Grid.Row="3" Grid.Column="2" Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Padding="0" Margin="0" Spacing="0">
+                    <Label x:Name="penceAmountLabel" Text="6" HorizontalTextAlignment="Center" FontSize="Large" Margin="0" Padding="0"/>
+                    <Label x:Name="penceTextLabel" Text="pence" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <ImageButton x:Name="ConvertPenceUpImage" Grid.Row="3" Grid.Column="3" Source="upArrowEnabled.png" WidthRequest="30" HorizontalOptions="Center"  BackgroundColor="Transparent" BorderColor="Transparent" Clicked="ConvertPenceUpImage_Clicked"/>
+                <Image x:Name="ConvertPenceUpDisabledImage" Grid.Row="3" Grid.Column="3" Source="upArrowDisabled.png" WidthRequest="30" HorizontalOptions="Center"/>
+                <Button x:Name="IncrementPenceButton" Grid.Row="3" Grid.Column="4" Text="+" FontSize="Title" HorizontalOptions="End"  BackgroundColor="Transparent" BorderColor="Transparent" Clicked="IncrementPenceButton_Clicked" />
+
+                <!-- farthing -->
+                <Button x:Name="DecrementFarthingsButton" Grid.Row="4" Text="-" FontSize="Title" HorizontalOptions="Start" BackgroundColor="Transparent" BorderColor="Transparent" Clicked="DecrementFarthingsButton_Clicked" />
+                <StackLayout Grid.Row="4" Grid.Column="2" Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Padding="0" Margin="0" Spacing="0">
+                    <Label x:Name="farthingsAmountLabel" Text="1" HorizontalTextAlignment="Center" FontSize="Large" Margin="0" Padding="0"/>
+                    <Label x:Name="farthingsTextLabel" Text="farthing" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <ImageButton x:Name="ConvertFarthingsUpImage" Grid.Row="4" Grid.Column="3" Source="upArrowEnabled.png" WidthRequest="30" HorizontalOptions="Center"  BackgroundColor="Transparent" BorderColor="Transparent" Clicked="ConvertFarthingsUpImage_Clicked"/>
+                <Image x:Name="ConvertFarthingsUpDisabledImage" Grid.Row="4" Grid.Column="3" Source="upArrowDisabled.png" WidthRequest="30" HorizontalOptions="Center"/>
+                <Button x:Name="IncrementFarthingsButton" Grid.Row="4" Grid.Column="4" Text="+" FontSize="Title" HorizontalOptions="End"  BackgroundColor="Transparent" BorderColor="Transparent" Clicked="IncrementFarthingsButton_Clicked"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
